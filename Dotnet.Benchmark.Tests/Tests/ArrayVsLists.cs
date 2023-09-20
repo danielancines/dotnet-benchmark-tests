@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using BenchmarkDotNet.Attributes;
 
 namespace Dotnet.Benchmark.Tests.Tests;
@@ -10,7 +11,7 @@ public class ArrayVsLists
     public int[] NamesArray { get; set; }
     [GlobalSetup]
     public void Setup()
-    {›
+    {
         this.Names = new();
         this.NamesArray = new int[SIZE];
 
@@ -20,24 +21,70 @@ public class ArrayVsLists
             this.NamesArray[i] = i;
         }
     }
+    // [Benchmark]
+    // public void Test_Array()
+    // {
+    //     var total = 0;
+    //     foreach (var number in this.NamesArray)
+    //     {
+    //         total += number;
+    //     }
+    // }
+    //
+    // [Benchmark]
+    // public void Test_List()
+    // {
+    //     var total = 0;
+    //     foreach (var number in this.Names)
+    //     {
+    //         total += number;
+    //     }
+    // }
+
     [Benchmark]
-    public void Test_Array()
+    public void Test_Search_On_Array_ForLoop()
     {
-        var total = 0;
-        foreach (var number in this.NamesArray)
+        var searchTerm = 34000;
+        for (int i = 0; i < this.NamesArray.Length; i++)
         {
-            total += number;
+            if (searchTerm == this.NamesArray[i])
+                break;
         }
     }
     
     [Benchmark]
-    public void Test_List()
+    public void Test_Search_On_Array_ForEachLoop()
     {
-        var total = 0;
-        foreach (var number in this.Names)
+        var searchTerm = 34000;
+        foreach (var number in this.NamesArray)
         {
-            total += number;
+            if (number == searchTerm)
+                break;
         }
     }
-
+    
+    [Benchmark]
+    public void Test_Search_On_Array_LINQ()
+    {
+        var searchTerm = 34000;
+        var result = this.NamesArray.FirstOrDefault(n => n == searchTerm);
+    }
+    
+    [Benchmark]
+    public void Test_Search_On_List_LINQ()
+    {
+        var searchTerm = 34000;
+        var result = this.Names.FirstOrDefault(n => n == searchTerm);
+    }
+    
+    [Benchmark]
+    public void Test_Search_On_List_ForeachLoop()
+    {
+        var searchTerm = 34000;
+        foreach (var name in this.Names)
+        {
+            if (searchTerm == name)
+                break;
+        }
+    }
 }
