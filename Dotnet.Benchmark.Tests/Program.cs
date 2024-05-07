@@ -4,4 +4,4 @@ using BenchmarkDotNet.Running;
 using Dotnet.Benchmark.Tests.Tests;
 
 Console.WriteLine("Hello, World!");
-BenchmarkRunner.Run<RefTests>();
+BenchmarkRunner.Run<SerializersTests>();
