@@ -25,29 +25,29 @@ public class SealedClassesTests
         }
     }
 
-    //[Benchmark(Baseline = true)]
-    //public void NonSealedClassesMethod()
-    //{
-    //    foreach (var item in _nonSealedClasses)
-    //    {
-    //        item.Method();
-    //    }
-    //}
-
-    //[Benchmark]
-    //public void SealedClassesMethod()
-    //{
-    //    foreach (var item in _nonSealedClasses)
-    //    {
-    //        item.Method();
-    //    }
-    //}
+    [Benchmark(Baseline = true)]
+    public void NonSealedClassesMethod()
+    {
+        foreach (var item in _nonSealedClasses)
+        {
+            item.Method();
+        }
+    }
 
     [Benchmark]
-    public bool Is_Sealed() => this._baseClass is SealedClass;
+    public void SealedClassesMethod()
+    {
+        foreach (var item in _sealedClasses)
+        {
+            item.Method();
+        }
+    }
 
-    [Benchmark(Baseline = true)]
-    public bool Is_NonSealed() => this._baseClass is NonSealedClass;
+    //[Benchmark]
+    //public bool Is_Sealed() => this._baseClass is SealedClass;
+
+    //[Benchmark(Baseline = true)]
+    //public bool Is_NonSealed() => this._baseClass is NonSealedClass;
 
     //[Benchmark(Baseline = true)]
     //public void NonSealed()
