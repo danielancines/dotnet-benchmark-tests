@@ -9,6 +9,9 @@ public class SealedClassesTests
     List<BaseClass> _nonSealedClasses = new();
     BaseClass _baseClass = new();
 
+    BaseClass _sealedClass = new SealedClass();
+    BaseClass _nonSealedClass = new NonSealedClass();
+
     [GlobalSetup]
     public void Setup()
     {
@@ -49,29 +52,17 @@ public class SealedClassesTests
     //[Benchmark(Baseline = true)]
     //public bool Is_NonSealed() => this._baseClass is NonSealedClass;
 
-    //[Benchmark(Baseline = true)]
-    //public void NonSealed()
-    //{
-    //    foreach (var item in this._nonSealedClasses)
-    //    {
-    //        if (item is NonSealedClass)
-    //        {
+    [Benchmark]
+    public void NonSealed()
+    {
+       (this._nonSealedClass as NonSealedClass).Name = "Daniel";
+    }
 
-    //        }
-    //    }
-    //}
-
-    //[Benchmark]
-    //public void Sealed()
-    //{
-    //    foreach (var item in this._sealedClasses)
-    //    {
-    //        if (item is SealedClass)
-    //        {
-
-    //        }
-    //    }
-    //}
+    [Benchmark]
+    public void Sealed()
+    {
+        (this._sealedClass as SealedClass).Name = "Daniel";
+    }
 }
 
 public class BaseClass
