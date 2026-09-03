@@ -3,4 +3,4 @@
 using BenchmarkDotNet.Running;
 using Dotnet.Benchmark.Tests.Tests;
 
-BenchmarkRunner.Run<JsonSerializerSourceGeneratorTests>();
+BenchmarkRunner.Run<TryCatchTests>();

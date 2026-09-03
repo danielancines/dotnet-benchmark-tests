@@ -5,6 +5,6 @@
 
 A collection of micro-benchmarks built with [BenchmarkDotNet](https://benchmarkdotnet.org/) exploring performance characteristics of various .NET features and patterns.
 
-## Benchmarks
+## Benchmarks (.net 10 - 10.0.400)
 
-- [JsonSerializer Source Generator Tests](./JsonSerializerSourceGeneratorTests.md) — Comparison between standard `System.Text.Json` reflection-based (de)serialization and the source-generated equivalents.
+#### [TryCatchTests](https://github.com/danielancines/dotnet-benchmark-tests/blob/main/Dotnet.Benchmark.Tests/Tests/TryCatchTests.cs)
