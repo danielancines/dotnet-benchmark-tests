@@ -9,16 +9,13 @@ public class TryCatchTests
     public void With_Try_Catch()
     {
         var count = 0;
-        for (int i = 0; i < 10000; i++)
+        try
         {
-            try
-            {
-                count += i;
-            }
-            catch (Exception ex)
-            {
+            count += 2;
+        }
+        catch (Exception ex)
+        {
 
-            }
         }
     }
 
@@ -26,18 +23,15 @@ public class TryCatchTests
     public void With_Try_Catch_Throwing_Exception()
     {
         var count = 0;
-        for (int i = 0; i < 10000; i++)
+        try
         {
-            try
-            {
-                count += i;
-                if (Random.Shared.Next() % 2 == 0)
-                    throw new Exception();
-            }
-            catch (Exception ex)
-            {
+            count += 2;
+            if (Random.Shared.Next() % 2 == 0)
+                throw new Exception();
+        }
+        catch (Exception ex)
+        {
 
-            }
         }
     }
 
@@ -45,9 +39,6 @@ public class TryCatchTests
     public void No_Try_Catch()
     {
         var count = 0;
-        for (int i = 0; i < 10000; i++)
-        {
-            count += i;
-        }
+        count += 2;
     }
 }
