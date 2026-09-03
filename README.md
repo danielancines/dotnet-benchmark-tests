@@ -8,3 +8,5 @@ A collection of micro-benchmarks built with [BenchmarkDotNet](https://benchmarkd
 ## Benchmarks (.net 10 - 10.0.400)
 
 #### [TryCatchTests](https://github.com/danielancines/dotnet-benchmark-tests/blob/main/Dotnet.Benchmark.Tests/Tests/TryCatchTests.cs)
+<img width="948" height="95" alt="image" src="https://github.com/user-attachments/assets/60d9a327-7b37-440f-b587-200a2f1a6aef" />
+
